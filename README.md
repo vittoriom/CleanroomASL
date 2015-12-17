@@ -24,10 +24,11 @@ CleanroomLogger uses CleanroomASL under the hood, but provides a simpler API tha
 CleanroomLogger is also extensible, allowing you to multiplex log output to multiple destinations and to add your own logger implementations.
 
 
-### Swift 2.0 compatibility
+### Swift 2.1 compatibility
 
-The `master` branch of this project is Swift 2.0 compliant and therefore **requires Xcode 7.0 or higher to compile**.
+The `master` branch of this project is **Swift 2.1 compliant** and therefore **requires Xcode 7.1 or higher** to compile.
 
+It is also known to work with Swift 2.1.1 in Xcode 7.2.
 
 ### License
 
