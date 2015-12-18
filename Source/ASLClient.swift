@@ -141,7 +141,7 @@ public final class ASLClient
     private func dispatcher(currentQueue: dispatch_queue_t? = nil, synchronously: Bool = false) -> (dispatch_block_t) -> Void
     {
         let dispatcher: (dispatch_block_t) -> Void = { [queue] block in
-            let shouldDispatch = currentQueue == nil || !self.queue.isEqual(currentQueue!)
+            let shouldDispatch = currentQueue == nil || !queue.isEqual(currentQueue!)
             if shouldDispatch {
                 if synchronously {
                     return dispatch_sync(queue, block)
