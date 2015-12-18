@@ -30,87 +30,82 @@ public final class ASLClient
     */
     public struct Options: OptionSetType
     {
-        /**
-        The raw representation of the receiving `ASLClient.Options` value.
-        */
+        /// The raw representation of the receiving `ASLClient.Options` value.
         public let rawValue: UInt32
 
         /**
         Initializes a new `ASLClient.Options` value with the specified
         raw value.
         
-        :param:     rawValue A `UInt32` value containing the raw bit flag
+        - parameter rawValue: A `UInt32` value containing the raw bit flag
                     values to use.
         */
         public init(rawValue: UInt32) { self.rawValue = rawValue }
 
-        /** An `ASLClient.Options` value wherein none of the bit flags are
-        set. */
+        /// An `ASLClient.Options` value wherein none of the bit flags are set.
         public static let None      = Options(rawValue: 0)
 
-        /** An `ASLClient.Options` value with the `ASL_OPT_STDERR` flag set. */
+        /// An `ASLClient.Options` value with the `ASL_OPT_STDERR` flag set.
         public static let StdErr    = Options(rawValue: 0x00000001)
 
-        /** An `ASLClient.Options` value with the `ASL_OPT_NO_DELAY` flag 
-        set. */
+        /// An `ASLClient.Options` value with the `ASL_OPT_NO_DELAY` flag set.
         public static let NoDelay   = Options(rawValue: 0x00000002)
 
-        /** An `ASLClient.Options` value with the `ASL_OPT_NO_REMOTE`
-        flag set. */
+        /// An `ASLClient.Options` value with the `ASL_OPT_NO_REMOTE` flag set.
         public static let NoRemote  = Options(rawValue: 0x00000004)
     }
 
-    /** The string that will be used by ASL the *sender* of any log messages
-    passed to the receiver's `log()` function. */
+    /// The string that will be used by ASL the *sender* of any log messages
+    /// passed to the receiver's `log()` function.
     public let sender: String
 
-    /** The string that will be used by ASL the *facility* of any log messages
-    passed to the receiver's `log()` function. */
+    /// The string that will be used by ASL the *facility* of any log messages
+    /// passed to the receiver's `log()` function.
     public let facility: String
 
-    /** The receiver's filter mask. */
+    /// The receiver's filter mask.
     public let filterMask: Int32
 
-    /** If `true`, the receiver is mirroring log entries in raw form to 
-    the standard error stream; `false` otherwise. */
+    /// If `true`, the receiver is mirroring log entries in raw form to the
+    /// standard error stream; `false` otherwise.
     public let useRawStdErr: Bool
 
-    /** The `ASLClient.Options` value that determines the behavior of ASL. */
+    /// The `ASLClient.Options` value that determines the behavior of ASL.
     public let options: Options
 
-    /** The GCD queue used to serialize log operations. This is exposed to
-    allow low-level ASL operations not supported by `ASLClient` to be 
-    performed using the underlying `aslclient`. This queue must be used for all
-    ASL operations using the receiver's `client` property. */
+    /// The GCD queue used to serialize log operations. This is exposed to
+    /// allow low-level ASL operations not supported by `ASLClient` to be
+    /// performed using the underlying `aslclient`. This queue must be used for
+    /// all ASL operations using the receiver's `client` property.
     public let queue: dispatch_queue_t
 
-    /** Determines whether the receiver's connection to the ASL  */
+    /// Determines whether the receiver's connection to the ASL is open.
     public var isOpen: Bool { return client != nil }
 
-    /** The `aslclient` associated with the receiver. */
+    /// The `aslclient` associated with the receiver.
     public let client: aslclient
 
     /**
     Initializes a new `ASLClient` instance.
     
-    :param:     sender Will be used as the `ASLAttributeKey` value for the
+    - parameter sender: Will be used as the `ASLAttributeKey` value for the
                 `.Sender` key for all log messages sent to ASL. If `nil`, the
                 name of the running process is used.
     
-    :param:     facility Will be used as the `ASLAttributeKey` value for the
+    - parameter facility: Will be used as the `ASLAttributeKey` value for the
                 `.Facility` key for all log messages sent to ASL. If `nil`, 
                 the string "`com.gilt.cleanroomASL`" is used.
     
-    :param:     filterMask Specifies the priority filter that should be applied
+    - parameter filterMask: Specifies the priority filter that should be applied
                 to messages sent to the log.
     
-    :param:     useRawStdErr If `true`, messages sent through the `ASLClient`
+    - parameter useRawStdErr: If `true`, messages sent through the `ASLClient`
                 will be mirrored to standard error without modification.
                 Note that this differs from the behavior of the `.StdErr`
                 value for the `ASLClient.Options` parameter, which performs
                 some escaping and may add additional text to the message.
 
-    :param:     options An `ASLClient.Options` value specifying the client
+    - parameter options: An `ASLClient.Options` value specifying the client
                 options to be used by this new client. Note that if the
                 `.StdErr` value is passed and `rawStdErr` is also `true`,
                 the behavior of `rawStdErr` will be used, overriding the
@@ -164,15 +159,15 @@ public final class ASLClient
     /**
     Sends the message to the Apple System Log.
     
-    :param:     message the `ASLMessageObject` to send to Apple System Log.
+    - parameter message: the `ASLMessageObject` to send to Apple System Log.
     
-    :param:     logSynchronously If `true`, the `log()` function will perform
+    - parameter logSynchronously: If `true`, the `log()` function will perform
                 synchronously. You should **not** set this to `true` in
                 production code; it will degrade performance. Synchronous
                 logging can be useful when debugging to ensure that up-to-date
                 log messages are visible in the console.
     
-    :param:     currentQueue If the log message is already being processed on a
+    - parameter currentQueue: If the log message is already being processed on a
                 given GCD queue, a reference to that queue should be passed in.
                 That way, if `currentQueue` has the same value as the receiver's 
                 `queue` property, no additional dispatching will take place. 
@@ -206,10 +201,10 @@ public final class ASLClient
     Only entries that have a valid timestamp and message will be provided to
     the callback.
 
-    :param:     query The `ASLQueryObject` representing the search query to run.
+    - parameter query: The `ASLQueryObject` representing the search query
 
-    :param:     callback The callback function to be invoked for each log entry.
-                Make no assumptions about which thread will be calling the
+    - parameter callback: The callback function to be invoked for each log
+                entry. Make no assumptions about which thread will be calling the
                 function.
     */
     public func search(query: ASLQueryObject, callback: ASLQueryObject.ResultCallback)

@@ -14,31 +14,31 @@ values.
 */
 public enum ASLPriorityLevel: Int32 // EnumerableEnum
 {
-    /** Represents the `ASL_LEVEL_EMERG` constant. */
+    /// Represents the `ASL_LEVEL_EMERG` constant.
     case Emergency  = 0
 
-    /** Represents the `ASL_LEVEL_ALERT` constant. */
+    /// Represents the `ASL_LEVEL_ALERT` constant.
     case Alert      = 1
 
-    /** Represents the `ASL_LEVEL_CRIT` constant. */
+    /// Represents the `ASL_LEVEL_CRIT` constant.
     case Critical   = 2
 
-    /** Represents the `ASL_LEVEL_ERR` constant. */
+    /// Represents the `ASL_LEVEL_ERR` constant.
     case Error      = 3
 
-    /** Represents the `ASL_LEVEL_WARNING` constant. */
+    /// Represents the `ASL_LEVEL_WARNING` constant.
     case Warning    = 4
 
-    /** Represents the `ASL_LEVEL_NOTICE` constant. */
+    /// Represents the `ASL_LEVEL_NOTICE` constant.
     case Notice     = 5
 
-    /** Represents the `ASL_LEVEL_INFO` constant. */
+    /// Represents the `ASL_LEVEL_INFO` constant.
     case Info       = 6
 
-    /** Represents the `ASL_LEVEL_DEBUG` constant. */
+    /// Represents the `ASL_LEVEL_DEBUG` constant.
     case Debug      = 7
 
-    /** Returns the `ASL_STRING_*` equivalent of the receiver. */
+    /// Returns the `ASL_STRING_*` equivalent of the receiver.
     public var priorityString: String {
         get {
             switch self {
