@@ -1,6 +1,6 @@
 //
 //  ASLAttributeKey.swift
-//  Cleanroom Project
+//  CleanroomASL
 //
 //  Created by Evan Maloney on 3/17/15.
 //  Copyright © 2015 Gilt Groupe. All rights reserved.

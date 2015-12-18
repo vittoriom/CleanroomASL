@@ -1,6 +1,6 @@
 //
 //  ASLObject.swift
-//  Cleanroom Project
+//  CleanroomASL
 //
 //  Created by Evan Maloney on 3/17/15.
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-#if !XCODE_BUILD    // we import ASL as a module only when building with the
-import ASL          // Swift Package Manager (SPM); in Xcode, the use the
-#endif              // bridging header to import the ASL API
+#if SWIFT_PACKAGE_MANAGER   // we import ASL as a module only when building with the
+import ASL                  // Swift Package Manager (SPM); in Xcode, the use the
+#endif                      // bridging header to import the ASL API
 
 /**
 Extends the `asl_object_t` type by adding type-safe subscripting for message
