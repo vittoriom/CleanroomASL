@@ -41,7 +41,7 @@ CleanroomASL is provided for your use—free-of-charge—on an as-is basis. We m
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-You’ll need to [integrate CleanroomASL into your project](https://github.com/emaloney/CleanroomASL/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomASL/master/Documentation/index.html) it provides. You can choose:
+You’ll need to [integrate CleanroomASL into your project](https://github.com/emaloney/CleanroomASL/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomASL/master/Documentation/API/index.html) it provides. You can choose:
 
 - [Manual integration](https://github.com/emaloney/CleanroomASL/blob/master/INTEGRATION.md#manual-integration), wherein you embed CleanroomASL’s Xcode project within your own, **_or_**
 - [Using the Carthage dependency manager](https://github.com/emaloney/CleanroomASL/blob/master/INTEGRATION.md#carthage-integration) to build a framework that you then embed in your application.
@@ -120,7 +120,7 @@ Using its return value, the callback can control whether subsequent records are 
 
 ### API documentation
 
-For detailed information on using CleanroomASL, [API documentation](https://rawgit.com/emaloney/CleanroomASL/master/Documentation/index.html) is available.
+For detailed information on using CleanroomASL, [API documentation](https://rawgit.com/emaloney/CleanroomASL/master/Documentation/API/index.html) is available.
 
 
 ## About the Apple System Log
@@ -179,5 +179,5 @@ If you’d like to contribute to this or any other Cleanroom Project repo, pleas
 
 ### Acknowledgements
 
-[API documentation for CleanroomASL](https://rawgit.com/emaloney/CleanroomASL/master/Documentation/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
+[API documentation for CleanroomASL](https://rawgit.com/emaloney/CleanroomASL/master/Documentation/API/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
 
